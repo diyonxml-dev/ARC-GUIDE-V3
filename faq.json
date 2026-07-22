@@ -1,0 +1,44 @@
+{
+  "faq": [
+    {
+      "id": "faq-1",
+      "question": "Apa itu ARC (Anak Roblox Community)?",
+      "answer": "ARC adalah komunitas Discord untuk pemain Roblox di Indonesia. Tempat berkumpul, ngobrol, main bareng, dan ikut event seputar Roblox."
+    },
+    {
+      "id": "faq-2",
+      "question": "Bagaimana cara mulai setelah join server?",
+      "answer": "Ikuti langkah di halaman \"Mulai di ARC\": verifikasi diri, baca rules, ambil role, perkenalkan diri, lalu mulai ngobrol atau ikut event."
+    },
+    {
+      "id": "faq-3",
+      "question": "Kapan event Roblox diadakan?",
+      "answer": "Event diadakan rutin setiap 2 minggu sekali. Jadwal lengkap bisa dilihat di halaman Event Roblox."
+    },
+    {
+      "id": "faq-4",
+      "question": "Bagaimana cara membuat voice channel pribadi?",
+      "answer": "Klik channel \"➕ Create VC\" dan room voice pribadi akan otomatis dibuat untukmu. Kamu bisa mengatur nama dan limit anggotanya."
+    },
+    {
+      "id": "faq-5",
+      "question": "Bagaimana cara memutar musik di voice channel?",
+      "answer": "Join voice channel, buka channel perintah musik, lalu ketik !play diikuti judul lagu atau link."
+    },
+    {
+      "id": "faq-6",
+      "question": "Bagaimana sistem level dan XP bekerja?",
+      "answer": "XP didapat otomatis dari aktivitas chat dan voice. Semakin aktif, semakin cepat naik level dan membuka reward tertentu."
+    },
+    {
+      "id": "faq-7",
+      "question": "Saya punya masalah atau ingin melapor, harus ke mana?",
+      "answer": "Buka channel #ticket, klik tombol buat tiket, pilih kategori yang sesuai, lalu jelaskan masalahmu. Staff akan segera membantu."
+    },
+    {
+      "id": "faq-8",
+      "question": "Apakah ARC ramah untuk pemain baru?",
+      "answer": "Tentu. ARC dirancang agar member baru mudah beradaptasi lewat panduan onboarding step-by-step di website ini."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "steps": [
+    {
+      "id": "verifikasi",
+      "title": "Verifikasi",
+      "short": "Verifikasi diri untuk membuka akses server",
+      "description": "Buka channel #verifikasi dan ikuti instruksi verifikasi. Setelah selesai, kamu akan mendapatkan akses ke seluruh channel server.",
+      "channel": "#verifikasi"
+    },
+    {
+      "id": "rules",
+      "title": "Baca Rules",
+      "short": "Pahami aturan main di server ARC",
+      "description": "Kunjungi #rules dan baca seluruh peraturan server. Ini penting supaya kamu nyaman dan tidak melanggar tanpa sadar.",
+      "channel": "#rules"
+    },
+    {
+      "id": "role",
+      "title": "Ambil Role",
+      "short": "Pilih role sesuai minat kamu",
+      "description": "Ambil role di channel role-selection sesuai game favorit atau minatmu, supaya notifikasi yang kamu terima lebih relevan.",
+      "channel": "#role-selection"
+    },
+    {
+      "id": "perkenalan",
+      "title": "Perkenalan",
+      "short": "Kenalkan dirimu ke komunitas",
+      "description": "Tulis perkenalan singkat di #perkenalan: nama panggilan, game Roblox favorit, dan hal seru tentang dirimu.",
+      "channel": "#perkenalan"
+    },
+    {
+      "id": "mulai",
+      "title": "Mulai Ngobrol / Ikut Event",
+      "short": "Kamu siap jadi bagian dari ARC",
+      "description": "Gabung ngobrol di #general, main bareng di voice channel, atau daftar event Roblox terdekat di #event-roblox.",
+      "channel": "#general"
+    }
+  ]
+}

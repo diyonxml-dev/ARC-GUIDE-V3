@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "name": "Mulai di Sini",
+      "channels": [
+        { "name": "#rules", "description": "Wajib dibaca sebelum ngobrol di server." },
+        { "name": "#verifikasi", "description": "Verifikasi diri untuk membuka akses seluruh server." },
+        { "name": "#pengumuman", "description": "Info penting dan update resmi dari staff." },
+        { "name": "#perkenalan", "description": "Kenalkan dirimu ke member lain di sini." }
+      ]
+    },
+    {
+      "name": "Ngobrol",
+      "channels": [
+        { "name": "#general", "description": "Obrolan bebas seputar apa saja." },
+        { "name": "#roblox-talk", "description": "Diskusi seputar game Roblox favorit kamu." },
+        { "name": "#meme", "description": "Tempat berbagi meme dan hiburan ringan." }
+      ]
+    },
+    {
+      "name": "Event & Aktivitas",
+      "channels": [
+        { "name": "#event-roblox", "description": "Info dan pendaftaran event Roblox rutin ARC." },
+        { "name": "#leaderboard", "description": "Papan peringkat member paling aktif." }
+      ]
+    },
+    {
+      "name": "Voice",
+      "channels": [
+        { "name": "🔊 Lobby VC", "description": "Voice channel umum untuk nongkrong santai." },
+        { "name": "➕ Create VC", "description": "Klik untuk membuat voice channel pribadi otomatis." },
+        { "name": "🎵 Music VC", "description": "Voice channel khusus untuk mendengarkan musik bareng." }
+      ]
+    },
+    {
+      "name": "Bantuan",
+      "channels": [
+        { "name": "#ticket", "description": "Buat tiket privat untuk bantuan dari staff." },
+        { "name": "#faq", "description": "Pertanyaan yang sering ditanyakan member baru." }
+      ]
+    }
+  ],
+  "rules": [
+    "Hormati semua member, tidak ada toleransi untuk toxic atau bullying.",
+    "Dilarang spam, iklan tanpa izin, atau konten NSFW.",
+    "Gunakan channel sesuai dengan topiknya masing-masing.",
+    "Ikuti Discord Community Guidelines dan Terms of Service.",
+    "Dengarkan arahan staff, keputusan staff bersifat final."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "staff": [
+    {
+      "id": "owner-1",
+      "name": "Nama Owner",
+      "role": "Owner",
+      "roleGroup": "owner",
+      "avatar": "assets/images/avatar-placeholder.svg",
+      "description": "Pendiri ARC. Ganti deskripsi ini dengan bio singkat owner."
+    },
+    {
+      "id": "admin-1",
+      "name": "Nama Admin 1",
+      "role": "Admin",
+      "roleGroup": "admin",
+      "avatar": "assets/images/avatar-placeholder.svg",
+      "description": "Mengelola operasional server sehari-hari. Ganti dengan deskripsi asli."
+    },
+    {
+      "id": "admin-2",
+      "name": "Nama Admin 2",
+      "role": "Admin",
+      "roleGroup": "admin",
+      "avatar": "assets/images/avatar-placeholder.svg",
+      "description": "Deskripsi placeholder, silakan diganti."
+    },
+    {
+      "id": "mod-1",
+      "name": "Nama Moderator 1",
+      "role": "Moderator",
+      "roleGroup": "moderator",
+      "avatar": "assets/images/avatar-placeholder.svg",
+      "description": "Menjaga suasana chat tetap nyaman dan sesuai rules."
+    },
+    {
+      "id": "mod-2",
+      "name": "Nama Moderator 2",
+      "role": "Moderator",
+      "roleGroup": "moderator",
+      "avatar": "assets/images/avatar-placeholder.svg",
+      "description": "Deskripsi placeholder, silakan diganti."
+    }
+  ]
+}

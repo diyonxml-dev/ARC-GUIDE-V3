@@ -1,0 +1,66 @@
+{
+  "bots": [
+    {
+      "id": "jockie-music",
+      "name": "Jockie Music",
+      "icon": "music",
+      "tagline": "Putar lagu bareng teman di voice channel",
+      "function": "Bot musik untuk mendengarkan lagu bersama-sama di voice channel.",
+      "whenToUse": "Saat kamu dan teman-teman nongkrong di VC dan ingin dengar musik bareng.",
+      "howTo": [
+        { "step": "Join salah satu voice channel", "detail": "Masuk ke VC mana saja yang sedang aktif." },
+        { "step": "Buka channel music-command", "detail": "Semua perintah musik dikirim lewat channel ini." },
+        { "step": "Play lagu", "detail": "Ketik !play [judul lagu atau link] untuk memutar lagu." },
+        { "step": "Skip lagu", "detail": "Ketik !skip untuk melewati lagu yang sedang diputar." },
+        { "step": "Lihat antrian", "detail": "Ketik !queue untuk melihat daftar lagu berikutnya." },
+        { "step": "Stop musik", "detail": "Ketik !stop untuk menghentikan pemutaran dan mengosongkan antrian." }
+      ],
+      "example": "!play nama lagu di sini"
+    },
+    {
+      "id": "temp-voice",
+      "name": "Temporary Voice",
+      "icon": "waveform",
+      "tagline": "Bikin room VC pribadi otomatis",
+      "function": "Membuat voice channel sementara khusus untuk kamu dan teman-teman.",
+      "whenToUse": "Saat ingin ngobrol privat atau main bareng tanpa gangguan channel umum.",
+      "howTo": [
+        { "step": "Join Create VC", "detail": "Klik channel bernama \"➕ Create VC\" pada kategori voice." },
+        { "step": "Room otomatis dibuat", "detail": "Bot akan membuatkan voice channel baru khusus untukmu." },
+        { "step": "Atur room", "detail": "Ubah nama, limit anggota, atau kunci room lewat menu pengaturan channel." },
+        { "step": "Ajak teman", "detail": "Bagikan nama room agar teman bisa ikut bergabung." }
+      ],
+      "example": "Klik \"➕ Create VC\" untuk memulai"
+    },
+    {
+      "id": "leveling",
+      "name": "Leveling",
+      "icon": "trophy",
+      "tagline": "Aktif ngobrol, naik level, dapat reward",
+      "function": "Sistem XP yang menghargai keaktifan member di server.",
+      "whenToUse": "Berlaku otomatis setiap kali kamu aktif chat atau nongkrong di voice channel.",
+      "howTo": [
+        { "step": "Dapatkan XP", "detail": "XP didapat otomatis dari aktivitas chat dan voice channel." },
+        { "step": "Naik level", "detail": "Kumpulkan cukup XP untuk naik ke level berikutnya." },
+        { "step": "Reward", "detail": "Level tertentu membuka role dan akses channel khusus." },
+        { "step": "Leaderboard", "detail": "Cek peringkat keaktifan lewat perintah !rank atau !leaderboard." }
+      ],
+      "example": "!rank untuk cek level kamu"
+    },
+    {
+      "id": "ticket",
+      "name": "Ticket",
+      "icon": "ticket",
+      "tagline": "Butuh bantuan? Buat tiket ke staff",
+      "function": "Sistem tiket privat untuk menghubungi staff terkait masalah, laporan, atau pertanyaan.",
+      "whenToUse": "Saat ada masalah, ingin melapor sesuatu, atau butuh bantuan langsung dari staff.",
+      "howTo": [
+        { "step": "Klik tombol Ticket", "detail": "Buka channel ticket dan klik tombol \"Buat Tiket\"." },
+        { "step": "Pilih kategori", "detail": "Pilih jenis tiket: Report, Bantuan, atau Pertanyaan." },
+        { "step": "Jelaskan masalah", "detail": "Tulis detail masalah dengan jelas di channel tiket privat yang terbuat." },
+        { "step": "Staff membantu", "detail": "Tim staff akan merespon dan membantu menyelesaikan masalahmu." }
+      ],
+      "example": "Kategori: Report / Bantuan / Pertanyaan"
+    }
+  ]
+}

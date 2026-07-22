@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ARC Guide — Anak Roblox Community</title>
+<meta name="description" content="Panduan onboarding resmi Discord ARC (Anak Roblox Community). Pahami server dalam kurang dari 3 menit.">
+<link rel="icon" href="assets/icons/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="#main" class="visually-hidden">Lompat ke konten utama</a>
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-header">
+  <a href="#home" class="brand">
+    <img src="assets/icons/logo.svg" alt="" width="32" height="32">
+    <span>ARC Guide</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Navigasi utama">
+    <a href="#home" data-nav>Home</a>
+    <a href="#mulai" data-nav>Mulai di ARC</a>
+    <a href="#panduan" data-nav>Panduan</a>
+    <a href="#fitur" data-nav>Fitur & Bot</a>
+    <a href="#event" data-nav>Event</a>
+    <a href="#faq" data-nav>FAQ</a>
+    <a href="#staff" data-nav>Staff</a>
+  </nav>
+
+  <div class="header-actions">
+    <button class="icon-btn" id="searchOpenBtn" aria-label="Cari di ARC Guide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================= HOME / HERO ============================= -->
+  <section id="home" class="hero" data-section>
+    <div class="hero-caustics" aria-hidden="true">
+      <svg viewBox="0 0 800 400" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="causticGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g id="causticLines" stroke="url(#causticGrad)" stroke-width="6" fill="none" opacity="0.6">
+          <path d="M-50 60 Q 200 20 450 60 T 900 60"/>
+          <path d="M-50 140 Q 200 100 450 140 T 900 140"/>
+          <path d="M-50 220 Q 200 180 450 220 T 900 220"/>
+          <path d="M-50 300 Q 200 260 450 300 T 900 300"/>
+        </g>
+      </svg>
+    </div>
+    <div class="hero-bubbles" id="heroBubbles" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">Discord ARC · Anak Roblox Community</span>
+      <h1>Apa yang harus saya lakukan sekarang?</h1>
+      <p class="hero-sub">Onboarding hub ARC membantu kamu memahami server dan siap ikut komunitas dalam waktu kurang dari 3 menit.</p>
+      <div class="hero-actions">
+        <a href="#mulai" class="btn btn-primary" id="startNowBtn">Mulai Sekarang</a>
+        <a href="#panduan" class="btn btn-ghost">Lihat Panduan Server</a>
+      </div>
+    </div>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path fill="#F7FDFF" d="M0,64 C240,110 480,10 720,40 C960,70 1200,110 1440,60 L1440,120 L0,120 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Progress checklist card overlaps hero wave -->
+    <div class="progress-card reveal">
+      <div class="progress-top">
+        <strong>Checklist Onboarding</strong>
+        <span id="progressLabel" class="check-sub">0/4 selesai</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <ul class="checklist" id="homeChecklist">
+        <!-- populated by script.js from onboarding.json (first 4 steps) -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================= EVENT PREVIEW ============================= -->
+  <section class="section" aria-labelledby="eventPreviewTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Event Roblox</span>
+        <h2 id="eventPreviewTitle">Event terbaru ARC</h2>
+        <p class="section-desc">ARC mengadakan event Roblox rutin setiap 2 minggu sekali. Jangan sampai ketinggalan.</p>
+      </div>
+      <div id="eventPreviewList" class="grid grid-2"></div>
+      <div class="text-center mt-6">
+        <a href="#event" class="btn btn-secondary">Lihat Semua Event</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= FEATURE PREVIEW ============================= -->
+  <section class="section" aria-labelledby="featureTitle" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fitur Utama</span>
+        <h2 id="featureTitle">Yang bikin ARC seru</h2>
+        <p class="section-desc">Empat fitur andalan yang paling sering dipakai member ARC setiap hari.</p>
+      </div>
+      <div id="homeFeatureGrid" class="grid grid-4"></div>
+    </div>
+  </section>
+
+  <!-- ============================= MULAI DI ARC ============================= -->
+  <section id="mulai" class="section" data-section aria-labelledby="mulaiTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Onboarding</span>
+        <h2 id="mulaiTitle">Mulai di ARC</h2>
+        <p class="section-desc">Ikuti 5 langkah ini secara berurutan supaya kamu langsung nyaman jadi bagian dari ARC.</p>
+      </div>
+      <div class="steps-list" id="stepsList"></div>
+    </div>
+  </section>
+
+  <!-- ============================= PANDUAN SERVER ============================= -->
+  <section id="panduan" class="section" data-section aria-labelledby="panduanTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Panduan Server</span>
+        <h2 id="panduanTitle">Rules & Channel Penting</h2>
+        <p class="section-desc">Kenali aturan dan peta channel supaya kamu tahu harus ngobrol di mana.</p>
+      </div>
+
+      <h3>Rules</h3>
+      <div class="rules-list" id="rulesList"></div>
+
+      <h3 class="mt-6">Channel Penting</h3>
+      <div id="channelsList"></div>
+    </div>
+  </section>
+
+  <!-- ============================= FITUR & BOT ============================= -->
+  <section id="fitur" class="section" data-section aria-labelledby="fiturTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Fitur & Bot</span>
+        <h2 id="fiturTitle">Kenali Bot ARC</h2>
+        <p class="section-desc">Klik salah satu kartu untuk melihat cara pakai lengkap beserta contohnya.</p>
+      </div>
+      <div id="botGrid" class="grid grid-2"></div>
+    </div>
+  </section>
+
+  <!-- ============================= EVENT ROBLOX ============================= -->
+  <section id="event" class="section" data-section aria-labelledby="eventTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Event Roblox</span>
+        <h2 id="eventTitle">Jadwal Event ARC</h2>
+        <p class="section-desc" id="eventScheduleDesc">Event diadakan rutin setiap 2 minggu sekali.</p>
+      </div>
+      <div id="eventFullList" class="grid grid-2"></div>
+    </div>
+  </section>
+
+  <!-- ============================= FAQ ============================= -->
+  <section id="faq" class="section" data-section aria-labelledby="faqTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faqTitle">Pertanyaan Umum</h2>
+        <p class="section-desc">Cari pertanyaanmu atau klik untuk membuka jawabannya.</p>
+      </div>
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" id="faqSearchInput" placeholder="Cari pertanyaan..." aria-label="Cari FAQ">
+      </div>
+      <div id="faqList"></div>
+      <p class="no-results" id="faqNoResults" hidden>Tidak ada pertanyaan yang cocok. Coba kata kunci lain atau buat tiket di #ticket.</p>
+    </div>
+  </section>
+
+  <!-- ============================= STAFF ============================= -->
+  <section id="staff" class="section" data-section aria-labelledby="staffTitle">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Staff</span>
+        <h2 id="staffTitle">Tim di Balik ARC</h2>
+        <p class="section-desc">Kalau butuh bantuan langsung, kamu bisa hubungi salah satu staff berikut lewat #ticket.</p>
+      </div>
+      <div id="staffGroups"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <p>ARC — Anak Roblox Community. Dibuat dengan &#127754; untuk member baru.</p>
+</footer>
+
+<!-- ============================= BOT DETAIL MODAL ============================= -->
+<div class="modal-overlay" id="botModal" role="dialog" aria-modal="true" aria-labelledby="botModalTitle">
+  <div class="modal-sheet">
+    <button class="modal-close" id="botModalClose" aria-label="Tutup">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="eyebrow" id="botModalTag">Fitur</span>
+    <h2 id="botModalTitle"></h2>
+    <p id="botModalDesc"></p>
+    <div class="modal-steps" id="botModalSteps"></div>
+    <div class="modal-example" id="botModalExample"></div>
+  </div>
+</div>
+
+<!-- ============================= GLOBAL SEARCH OVERLAY ============================= -->
+<div class="global-search-overlay" id="globalSearchOverlay">
+  <div class="global-search-panel">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="globalSearchInput" placeholder="Cari channel, fitur, FAQ, staff..." aria-label="Pencarian global">
+      <button class="icon-btn" id="globalSearchCloseBtn" aria-label="Tutup pencarian">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="global-search-results" id="globalSearchResults"></div>
+  </div>
+</div>
+
+<!-- ============================= BOTTOM NAV (mobile) ============================= -->
+<nav class="bottom-nav" aria-label="Navigasi bawah">
+  <a href="#home" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+    Home
+  </a>
+  <a href="#mulai" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    Mulai
+  </a>
+  <a href="#fitur" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Fitur
+  </a>
+  <a href="#event" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    Event
+  </a>
+  <a href="#faq" data-nav>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+    FAQ
+  </a>
+</nav>
+
+<script src="script.js" defer></script>
+</body>
+</html>

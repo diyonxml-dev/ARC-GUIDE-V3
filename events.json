@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "id": "event-1",
+      "name": "Nama Event Roblox",
+      "game": "Nama Game Roblox",
+      "prize": "Contoh: Robux / Item in-game / Role spesial",
+      "host": "Nama Host",
+      "date": "2026-08-06T19:00:00+07:00",
+      "description": "Deskripsi singkat event, ganti dengan info asli event ARC.",
+      "registrationChannel": "#event-roblox",
+      "status": "upcoming"
+    },
+    {
+      "id": "event-2",
+      "name": "Nama Event Berikutnya",
+      "game": "Nama Game Roblox",
+      "prize": "Contoh: Robux / Item in-game / Role spesial",
+      "host": "Nama Host",
+      "date": "2026-08-20T19:00:00+07:00",
+      "description": "Deskripsi singkat event, ganti dengan info asli event ARC.",
+      "registrationChannel": "#event-roblox",
+      "status": "upcoming"
+    }
+  ],
+  "schedule": "Event ARC diadakan rutin setiap 2 minggu sekali."
+}
