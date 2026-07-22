@@ -2,43 +2,27 @@
   "staff": [
     {
       "id": "owner-1",
-      "name": "Nama Owner",
+      "name": "Pasep",
       "role": "Owner",
       "roleGroup": "owner",
-      "avatar": "assets/images/avatar-placeholder.svg",
-      "description": "Pendiri ARC. Ganti deskripsi ini dengan bio singkat owner."
+      "avatar": "assets/staff/owner.jpg",
+      "description": "Pendiri ARC dan pengelola utama Anak Roblox Community."
     },
     {
       "id": "admin-1",
-      "name": "Nama Admin 1",
+      "name": "Dyon",
       "role": "Admin",
       "roleGroup": "admin",
-      "avatar": "assets/images/avatar-placeholder.svg",
-      "description": "Mengelola operasional server sehari-hari. Ganti dengan deskripsi asli."
+      "avatar": "assets/staff/admin.jpg",
+      "description": "Mengelola operasional ARC dan membantu menjaga komunitas tetap aktif."
     },
     {
-      "id": "admin-2",
-      "name": "Nama Admin 2",
-      "role": "Admin",
-      "roleGroup": "admin",
-      "avatar": "assets/images/avatar-placeholder.svg",
-      "description": "Deskripsi placeholder, silakan diganti."
-    },
-    {
-      "id": "mod-1",
-      "name": "Nama Moderator 1",
-      "role": "Moderator",
-      "roleGroup": "moderator",
-      "avatar": "assets/images/avatar-placeholder.svg",
-      "description": "Menjaga suasana chat tetap nyaman dan sesuai rules."
-    },
-    {
-      "id": "mod-2",
-      "name": "Nama Moderator 2",
-      "role": "Moderator",
-      "roleGroup": "moderator",
-      "avatar": "assets/images/avatar-placeholder.svg",
-      "description": "Deskripsi placeholder, silakan diganti."
-    }
+  "id": "admin-2",
+  "name": "Nuxy",
+  "role": "Admin",
+  "roleGroup": "admin",
+  "avatar": "assets/staff/admin.jpg",
+  "description": "Admin ARC yang aktif berinteraksi dengan member, sering ikut meramaikan chat dan voice channel."
+}
   ]
 }
