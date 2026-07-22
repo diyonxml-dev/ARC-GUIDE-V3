@@ -10,18 +10,18 @@
       "howTo": [
         {
           "step": "Masuk Voice Channel",
-          "detail": "Join voice channel yang sedang digunakan."
+          "detail": "Join voice channel yang ingin digunakan."
         },
         {
-          "step": "Gunakan perintah musik",
-          "detail": "Masukkan command musik pada channel yang tersedia."
+          "step": "Putar musik",
+          "detail": "Gunakan command m!play <nama lagu> di channel musik."
         },
         {
-          "step": "Nikmati musik",
-          "detail": "Bot akan memutar lagu di voice channel."
+          "step": "Kontrol musik",
+          "detail": "Gunakan m!pause, m!skip, atau m!queue untuk mengatur musik."
         }
       ],
-      "example": "Gunakan command musik yang tersedia di server."
+      "example": "m!play nama lagu"
     },
     {
       "id": "temp-voice",
@@ -67,7 +67,7 @@
           "detail": "Gunakan fitur level yang tersedia di server."
         }
       ],
-      "example": "Cek level melalui fitur leveling ARC."
+      "example": "Gunakan fitur leaderboard leveling ARC."
     },
     {
       "id": "ticket",
@@ -90,7 +90,7 @@
           "detail": "Staff ARC akan membantu melalui channel privat."
         }
       ],
-      "example": "Gunakan ticket jika membutuhkan bantuan staff."
+      "example": "Buat ticket melalui #🎫︱ticket-center."
     },
     {
       "id": "arc-bot",
@@ -109,7 +109,7 @@
           "detail": "Bot akan memberikan informasi atau menjalankan fitur."
         }
       ],
-      "example": "Gunakan command ARC Bot yang tersedia."
+      "example": "!help"
     }
   ]
 }
