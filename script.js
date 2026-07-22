@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ARC Guide V3 — script.js FINAL
-   Part 1/3
+   ARC Guide V3 — script.js FINAL CLEAN
+   Vanilla JS
    ========================================================================== */
 
 (() => {
@@ -10,100 +10,71 @@
 /* =============================== Utils =============================== */
 
 
-const $ = (selector, ctx = document) =>
-    ctx ? ctx.querySelector(selector) : null;
+const $ = (s, c = document) =>
+    c?.querySelector?.(s) || null;
 
 
-const $$ = (selector, ctx = document) =>
-    ctx ? Array.from(ctx.querySelectorAll(selector)) : [];
+const $$ = (s, c = document) =>
+    c ? [...c.querySelectorAll(s)] : [];
 
 
 const prefersReducedMotion =
-    window.matchMedia &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.matchMedia?.(
+        "(prefers-reduced-motion: reduce)"
+    )?.matches ?? false;
 
 
 
 const STORAGE_KEY =
-    "arcGuide.onboarding.v1";
+"arcGuide.onboarding.v1";
 
 
 
-function escapeHTML(value = "") {
+function escapeHTML(text = ""){
 
-    return String(value).replace(/[&<>"']/g, char => ({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#39;"
-    }[char]));
-
-}
-
-
-
-function loadProgress(){
-
-    try {
-
-        return JSON.parse(
-            localStorage.getItem(STORAGE_KEY)
-        ) || {};
-
-    } catch {
-
-        return {};
-
-    }
+    return String(text).replace(
+        /[&<>"']/g,
+        c => ({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#39;"
+        }[c])
+    );
 
 }
 
-
-
-function saveProgress(data){
-
-    try {
-
-        localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify(data)
-        );
-
-    } catch {}
-
-}
 
 
 
 async function fetchJSON(path){
 
-    try {
+    try{
 
-        const response =
-            await fetch(path, {
+        const res =
+            await fetch(path,{
                 cache:"no-cache"
             });
 
 
-        if(!response.ok)
-            throw new Error(
-                response.status
-            );
+        if(!res.ok)
+            throw Error(res.status);
+
 
 
         return {
             ok:true,
-            data:await response.json()
+            data:await res.json()
         };
 
 
-    } catch(error){
+    }catch(e){
 
         console.error(
-            "ARC Guide gagal:",
+            "ARC Guide:",
             path,
-            error
+            e
         );
 
 
@@ -118,64 +89,40 @@ async function fetchJSON(path){
 
 
 
-function renderSkeleton(element, count = 3){
-
-    if(!element)
-        return;
 
 
-    element.innerHTML =
-        Array.from(
-            {
-                length:count
-            },
-            () =>
-            `
-            <div class="skeleton skeleton-card"></div>
-            `
-        ).join("");
+function loadProgress(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                STORAGE_KEY
+            )
+        ) || {};
+
+    }catch{
+
+        return {};
+
+    }
 
 }
 
 
 
-function renderError(element, message, retry){
 
-    if(!element)
-        return;
+function saveProgress(data){
 
-
-    element.innerHTML = `
-
-    <div class="error-box">
-
-        <p>
-        ${message}
-        </p>
-
-
-        <button class="btn btn-secondary"
-        data-retry>
-        Coba lagi
-        </button>
-
-    </div>
-
-    `;
-
-
-    element
-    .querySelector("[data-retry]")
-    ?.addEventListener(
-        "click",
-        retry
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
     );
 
 }
 
 
 
-/* =============================== State =============================== */
 
 
 const store = {
@@ -192,63 +139,50 @@ const store = {
 
 
 
+
 /* =============================== Icons =============================== */
 
 
 const ICONS = {
 
 
-check:
-`
+check:`
 <svg viewBox="0 0 24 24"
 fill="none"
 stroke="currentColor"
 stroke-width="3">
-
 <path d="M20 6L9 17l-5-5"/>
-
 </svg>
 `,
 
 
-music:
-`
+music:`
 <svg viewBox="0 0 24 24"
 fill="none"
 stroke="currentColor">
-
 <path d="M9 18V5l12-2v13"/>
-
 <circle cx="6" cy="18" r="3"/>
-
 <circle cx="18" cy="16" r="3"/>
-
 </svg>
 `,
 
 
-trophy:
-`
+trophy:`
 <svg viewBox="0 0 24 24"
 fill="none"
 stroke="currentColor">
-
 <path d="M8 21h8"/>
 <path d="M12 17v4"/>
 <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/>
-
 </svg>
 `,
 
 
-ticket:
-`
+ticket:`
 <svg viewBox="0 0 24 24"
 fill="none"
 stroke="currentColor">
-
 <path d="M3 9a2 2 0 0 0 0 4v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 1 0-4V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3Z"/>
-
 </svg>
 `
 
@@ -257,178 +191,227 @@ stroke="currentColor">
 
 
 
-/* =============================== Bubbles =============================== */
+
+/* =============================== Bubble =============================== */
 
 
 function spawnBubbles(){
 
-    const holder =
+    const box =
         $("#heroBubbles");
 
 
-    if(!holder || prefersReducedMotion)
+    if(!box || prefersReducedMotion)
         return;
 
 
 
-    const amount =
-        window.innerWidth < 640 ? 10 : 18;
+    const count =
+        innerWidth < 640 ? 10 : 18;
 
 
 
-    for(let i = 0; i < amount; i++){
+    for(let i=0;i<count;i++){
 
-        const bubble =
-            document.createElement("span");
+        const b =
+            document.createElement(
+                "span"
+            );
 
 
-        bubble.className =
+        b.className =
             "bubble";
 
 
         const size =
-            5 + Math.random()*12;
+            5 + Math.random()*10;
 
 
-        bubble.style.width =
-            `${size}px`;
+        b.style.width =
+            size+"px";
 
 
-        bubble.style.height =
-            `${size}px`;
+        b.style.height =
+            size+"px";
 
 
-        bubble.style.left =
-            `${Math.random()*100}%`;
+        b.style.left =
+            Math.random()*100+"%";
 
 
-        holder.appendChild(bubble);
+        box.appendChild(b);
 
     }
 
 }
+
+
+
+
+
 /* =============================== Checklist =============================== */
 
 
-function renderChecklist(steps = []){
+function renderChecklist(){
 
-    const box = $("#homeChecklist");
+    const box =
+        $("#homeChecklist");
+
 
     if(!box)
         return;
 
 
-    const progress = loadProgress();
-
-
-    box.innerHTML =
-        steps.slice(0,4)
-        .map(step => {
-
-            const done =
-                !!progress[step.id];
-
-
-            return `
-
-            <li class="checklist-item ${done ? "done" : ""}"
-            data-step-id="${step.id}">
-
-                <span class="check-circle">
-                    ${ICONS.check}
-                </span>
-
-
-                <div class="check-text">
-
-                    <b>
-                    ${escapeHTML(step.title)}
-                    </b>
-
-
-                    <p>
-                    ${escapeHTML(step.short || "")}
-                    </p>
-
-                </div>
-
-            </li>
-
-            `;
-
-        })
-        .join("");
-
-
-
-    $$(".checklist-item", box)
-    .forEach(item => {
-
-        item.addEventListener(
-            "click",
-            () => {
-
-                toggleStep(
-                    item.dataset.stepId,
-                    steps
-                );
-
-            }
-        );
-
-    });
-
-
-
-    updateProgressBar(steps);
-
-}
-
-
-
-
-function toggleStep(id, steps){
 
     const data =
         loadProgress();
 
 
-    data[id] =
-        !data[id];
+
+    box.innerHTML =
+    store.onboarding
+    .slice(0,4)
+    .map(step=>`
+
+    <li class="checklist-item ${
+        data[step.id] ? "done": ""
+    }"
+    data-id="${step.id}">
 
 
-    saveProgress(data);
+        <span class="check-circle">
+        ${ICONS.check}
+        </span>
 
 
-    renderChecklist(steps);
+        <div>
 
-    renderSteps(steps);
+        <b>
+        ${escapeHTML(step.title)}
+        </b>
+
+
+        <p>
+        ${escapeHTML(step.short||"")}
+        </p>
+
+
+        </div>
+
+
+    </li>
+
+    `)
+    .join("");
+
+
+
+    $$(".checklist-item",box)
+    .forEach(item=>{
+
+
+        item.onclick=()=>{
+
+            const p =
+                loadProgress();
+
+
+            p[item.dataset.id] =
+                !p[item.dataset.id];
+
+
+            saveProgress(p);
+
+
+            renderChecklist();
+
+            renderSteps();
+
+        };
+
+
+    });
+
+
+    updateProgress();
 
 }
 
 
 
 
-function updateProgressBar(steps){
+function renderSteps(){
+
+    const box =
+        $("#stepsList");
+
+
+    if(!box)
+        return;
+
+
+
+    const data =
+        loadProgress();
+
+
+
+    box.innerHTML =
+    store.onboarding
+    .map((s,i)=>`
+
+    <div class="step-card">
+
+
+    <span class="step-index">
+
+    ${
+        data[s.id]
+        ?
+        "✓"
+        :
+        i+1
+    }
+
+    </span>
+
+
+    <div>
+
+    <h3>
+    ${escapeHTML(s.title)}
+    </h3>
+
+
+    <p>
+    ${escapeHTML(s.description||"")}
+    </p>
+
+
+    </div>
+
+
+    </div>
+
+
+    `)
+    .join("");
+
+}
+
+
+
+
+function updateProgress(){
 
     const data =
         loadProgress();
 
 
     const done =
-        steps.filter(
-            step => data[step.id]
-        ).length;
-
-
-    const percent =
-        steps.length
-        ?
-        Math.round(
-            done / steps.length * 100
-        )
-        :
-        0;
+        store.onboarding
+        .filter(x=>data[x.id])
+        .length;
 
 
 
@@ -441,73 +424,27 @@ function updateProgressBar(steps){
 
 
 
+    const percent =
+        store.onboarding.length
+        ?
+        done/store.onboarding.length*100
+        :
+        0;
+
+
+
     if(fill)
         fill.style.width =
-        `${percent}%`;
-
+        percent+"%";
 
 
     if(label)
         label.textContent =
-        `${done}/${steps.length} selesai`;
+        `${done}/${store.onboarding.length} selesai`;
 
 }
 
 
-
-
-function renderSteps(steps = []){
-
-    const box =
-        $("#stepsList");
-
-
-    if(!box)
-        return;
-
-
-
-    const progress =
-        loadProgress();
-
-
-
-    box.innerHTML =
-        steps.map((step,index)=>`
-
-        <div class="step-card">
-
-            <span class="step-index">
-
-            ${
-                progress[step.id]
-                ?
-                "✓"
-                :
-                index + 1
-            }
-
-            </span>
-
-
-            <div>
-
-                <h3>
-                ${escapeHTML(step.title)}
-                </h3>
-
-
-                <p>
-                ${escapeHTML(step.description || "")}
-                </p>
-
-            </div>
-
-        </div>
-
-        `).join("");
-
-}
 
 
 
@@ -515,10 +452,7 @@ function renderSteps(steps = []){
 /* =============================== Bots =============================== */
 
 
-function renderBotCards(
-    bots = [],
-    target
-){
+function renderBots(target){
 
     const box =
         $(target);
@@ -530,85 +464,62 @@ function renderBotCards(
 
 
     box.innerHTML =
-        bots.map(bot => `
+    store.bots.map(bot=>`
 
-        <div class="card feature-card"
-        data-bot-id="${bot.id}">
-
-
-            <div class="card-icon">
-
-                ${ICONS[bot.icon] || ""}
-
-            </div>
+    <div class="card feature-card"
+    data-bot="${bot.id}">
 
 
-
-            <h3>
-
-            ${escapeHTML(bot.name)}
-
-            </h3>
-
-
-
-            <p>
-
-            ${escapeHTML(
-                bot.tagline ||
-                bot.function ||
-                ""
-            )}
-
-            </p>
-
-
+        <div class="card-icon">
+        ${ICONS[bot.icon]||""}
         </div>
 
-        `)
-        .join("");
+
+        <h3>
+        ${escapeHTML(bot.name)}
+        </h3>
 
 
-
-    bindBotCards(
-        box,
-        bots
-    );
-
-}
-
-
+        <p>
+        ${escapeHTML(
+            bot.tagline ||
+            bot.function ||
+            ""
+        )}
+        </p>
 
 
-function bindBotCards(box,bots){
+    </div>
+
+
+    `)
+    .join("");
+
+
 
     $$(".feature-card",box)
     .forEach(card=>{
 
 
-        card.addEventListener(
-            "click",
-            ()=>{
+        card.onclick=()=>{
 
 
-                const bot =
-                    bots.find(
-                        x =>
-                        x.id ===
-                        card.dataset.botId
-                    );
+            const bot =
+            store.bots.find(
+                b =>
+                b.id===card.dataset.bot
+            );
 
 
-                openBotModal(bot);
+            openBotModal(bot);
 
-
-            }
-        );
+        };
 
 
     });
 
 }
+
 
 
 
@@ -619,39 +530,26 @@ function openBotModal(bot){
         return;
 
 
-    const modal =
-        $("#botModal");
-
-
-    if(!modal)
-        return;
-
-
-
     $("#botModalTitle")
-    ?.replaceChildren(
-        document.createTextNode(
-            bot.name
-        )
+    &&(
+    $("#botModalTitle").textContent =
+    bot.name
     );
-
 
 
     $("#botModalDesc")
-    ?.replaceChildren(
-        document.createTextNode(
-            bot.function || ""
-        )
+    &&(
+    $("#botModalDesc").textContent =
+    bot.function || ""
     );
 
 
-
-    modal.classList.add(
+    $("#botModal")
+    ?.classList.add(
         "open"
     );
 
 }
-
 
 
 
@@ -662,15 +560,10 @@ function closeBotModal(){
         "open"
     );
 
-}
+}/* =============================== Events =============================== */
 
 
-
-
-/* =============================== Events =============================== */
-
-
-function formatEventDate(date){
+function formatDate(date){
 
     try{
 
@@ -685,10 +578,9 @@ function formatEventDate(date){
             }
         );
 
-
     }catch{
 
-        return date || "-";
+        return "-";
 
     }
 
@@ -696,8 +588,7 @@ function formatEventDate(date){
 
 
 
-
-function eventCardHTML(event){
+function eventHTML(event){
 
 return `
 
@@ -707,13 +598,14 @@ return `
 <div class="event-banner">
 
 <span>
-${escapeHTML(event.game || "")}
+${escapeHTML(event.game||"")}
 </span>
 
 
 <h3>
-${escapeHTML(event.name || "Event")}
+${escapeHTML(event.name||"Event")}
 </h3>
+
 
 </div>
 
@@ -723,7 +615,7 @@ ${escapeHTML(event.name || "Event")}
 
 
 <p>
-${escapeHTML(event.description || "")}
+${escapeHTML(event.description||"")}
 </p>
 
 
@@ -733,19 +625,19 @@ ${escapeHTML(event.description || "")}
 
 <div>
 <b>Hadiah</b>
-${escapeHTML(event.prize || "-")}
+${escapeHTML(event.prize||"-")}
 </div>
 
 
 <div>
 <b>Host</b>
-${escapeHTML(event.host || "-")}
+${escapeHTML(event.host||"-")}
 </div>
 
 
 <div>
 <b>Jadwal</b>
-${formatEventDate(event.date)}
+${formatDate(event.date)}
 </div>
 
 
@@ -754,11 +646,10 @@ ${formatEventDate(event.date)}
 
 
 <div class="countdown"
-data-time="${event.date}">
-
+data-date="${event.date}">
 Loading...
-
 </div>
+
 
 
 </div>
@@ -772,201 +663,216 @@ Loading...
 
 
 
-function renderEvents(events = []){
+function renderEvents(){
+
+    const preview =
+        $("#eventPreviewList");
 
 
-$("#eventPreviewList")
-?.replaceChildren();
-
-
-
-$("#eventPreviewList")
-?.insertAdjacentHTML(
-"beforeend",
-events.slice(0,2)
-.map(eventCardHTML)
-.join("")
-);
+    const full =
+        $("#eventFullList");
 
 
 
-$("#eventFullList")
-?.insertAdjacentHTML(
-"beforeend",
-events.map(eventCardHTML)
-.join("")
-);
+    if(preview){
+
+        preview.innerHTML =
+        store.events
+        .slice(0,2)
+        .map(eventHTML)
+        .join("");
+
+    }
 
 
 
-startCountdown();
+    if(full){
 
-}
+        full.innerHTML =
+        store.events
+        .map(eventHTML)
+        .join("");
 
-
-
-
-let countdownTimer;
-
-
-function startCountdown(){
-
-clearInterval(
-countdownTimer
-);
+    }
 
 
-countdownTimer =
-setInterval(()=>{
-
-
-$$("[data-time]")
-.forEach(el=>{
-
-
-const target =
-new Date(
-el.dataset.time
-)
-.getTime();
-
-
-
-const diff =
-target - Date.now();
-
-
-
-if(diff <= 0){
-
-el.textContent =
-"Dimulai";
-
-return;
-
-}
-
-
-
-const h =
-Math.floor(
-diff / 3600000
-);
-
-
-const m =
-Math.floor(
-diff % 3600000 / 60000
-);
-
-
-const s =
-Math.floor(
-diff % 60000 / 1000
-);
-
-
-
-el.textContent =
-`${h}j ${m}m ${s}d`;
-
-
-});
-
-
-},1000);
-
-}/* =============================== Rules =============================== */
-
-
-function renderRules(rules = []){
-
-    const box = $("#rulesList");
-
-    if(!box)
-        return;
-
-
-    box.innerHTML =
-    rules.map((rule,index)=>`
-
-    <div class="rule-item">
-
-        <strong>
-        ${index + 1}.
-        </strong>
-
-        <span>
-        ${escapeHTML(rule)}
-        </span>
-
-    </div>
-
-    `).join("");
+    countdown();
 
 }
 
 
 
 
-/* =============================== Channels =============================== */
+let timer;
 
 
-function renderChannels(categories = []){
+function countdown(){
 
-    const box =
+    clearInterval(timer);
+
+
+    timer =
+    setInterval(()=>{
+
+
+        $$("[data-date]")
+        .forEach(el=>{
+
+
+            const end =
+            new Date(
+                el.dataset.date
+            )
+            .getTime();
+
+
+
+            let diff =
+            end-Date.now();
+
+
+
+            if(diff<=0){
+
+                el.textContent =
+                "Dimulai";
+
+                return;
+
+            }
+
+
+
+            const h =
+            Math.floor(
+                diff/3600000
+            );
+
+
+            diff %= 3600000;
+
+
+            const m =
+            Math.floor(
+                diff/60000
+            );
+
+
+            diff %= 60000;
+
+
+            const s =
+            Math.floor(
+                diff/1000
+            );
+
+
+
+            el.textContent =
+            `${h}j ${m}m ${s}d`;
+
+        });
+
+
+
+    },1000);
+
+}
+
+
+
+
+
+
+/* =============================== Rules =============================== */
+
+
+function renderChannels(){
+
+    const rules =
+        $("#rulesList");
+
+
+    const channels =
         $("#channelsList");
 
 
-    if(!box)
-        return;
+
+    if(rules && store.channels){
+
+        rules.innerHTML =
+        store.channels.rules
+        .map((r,i)=>`
+
+        <div class="rule-item">
+
+        <b>
+        ${i+1}.
+        </b>
+
+        <span>
+        ${escapeHTML(r)}
+        </span>
+
+        </div>
+
+        `)
+        .join("");
+
+    }
 
 
 
-    box.innerHTML =
-    categories.map(category=>`
 
-    <div class="channel-group">
+    if(channels && store.channels){
+
+        channels.innerHTML =
+        store.channels.categories
+        .map(cat=>`
+
+        <div class="channel-group">
 
 
         <h3>
-        ${escapeHTML(category.name)}
+        ${escapeHTML(cat.name)}
         </h3>
 
 
-
         ${
-            (category.channels || [])
-            .map(channel=>`
+        cat.channels
+        .map(ch=>`
 
-            <div class="channel-item">
+        <div class="channel-item">
 
+        <b>
+        ${escapeHTML(ch.name)}
+        </b>
 
-                <b>
-                ${escapeHTML(channel.name)}
-                </b>
-
-
-                <p>
-                ${escapeHTML(
-                    channel.description || ""
-                )}
-                </p>
+        <p>
+        ${escapeHTML(
+            ch.description||""
+        )}
+        </p>
 
 
-            </div>
+        </div>
 
 
-            `).join("")
+        `)
+        .join("")
         }
 
 
-    </div>
+        </div>
 
 
-    `).join("");
+        `)
+        .join("");
+
+    }
 
 }
+
 
 
 
@@ -975,7 +881,7 @@ function renderChannels(categories = []){
 /* =============================== FAQ =============================== */
 
 
-function renderFAQ(items = []){
+function renderFAQ(){
 
     const box =
         $("#faqList");
@@ -987,92 +893,75 @@ function renderFAQ(items = []){
 
 
     box.innerHTML =
-    items.map(item=>`
+    store.faq.map(item=>`
 
     <div class="accordion-item">
 
 
-        <button class="accordion-trigger">
+    <button class="accordion-trigger">
 
+    ${escapeHTML(item.question)}
 
-            <span>
-            ${escapeHTML(item.question)}
-            </span>
-
-
-            <span>
-            ▼
-            </span>
-
-
-        </button>
+    </button>
 
 
 
-        <div class="accordion-panel">
+    <div class="accordion-panel">
 
+    <p>
+    ${escapeHTML(item.answer)}
+    </p>
 
-            <p>
-            ${escapeHTML(item.answer)}
-            </p>
-
-
-        </div>
+    </div>
 
 
     </div>
 
 
-    `).join("");
+    `)
+    .join("");
 
 
 
 
     $$(".accordion-trigger",box)
-    .forEach(button=>{
+    .forEach(btn=>{
 
 
-        button.addEventListener(
-            "click",
-            ()=>{
+        btn.onclick=()=>{
 
 
-                const parent =
-                    button.closest(
-                        ".accordion-item"
-                    );
+            btn.parentElement
+            .classList
+            .toggle(
+                "open"
+            );
 
 
-                parent.classList.toggle(
-                    "open"
-                );
+
+            const panel =
+            btn.nextElementSibling;
 
 
-                const panel =
-                    parent.querySelector(
-                        ".accordion-panel"
-                    );
 
+            if(
+                panel
+            ){
 
-                if(panel){
-
-                    panel.style.maxHeight =
-                    parent.classList.contains("open")
-                    ?
-                    panel.scrollHeight + "px"
-                    :
-                    "";
-
-                }
-
+                panel.style.maxHeight =
+                panel.style.maxHeight
+                ?
+                ""
+                :
+                panel.scrollHeight+"px";
 
             }
-        );
+
+
+        };
 
 
     });
-
-
 
 }
 
@@ -1083,7 +972,7 @@ function renderFAQ(items = []){
 /* =============================== Staff =============================== */
 
 
-function renderStaff(staff=[]){
+function renderStaff(){
 
     const box =
         $("#staffGroups");
@@ -1095,46 +984,49 @@ function renderStaff(staff=[]){
 
 
     box.innerHTML =
-    staff.map(member=>`
+    store.staff.map(user=>`
 
     <div class="staff-card">
 
 
-        <img
-        src="${member.avatar || ""}"
-        loading="lazy"
-        >
+    <img
+    src="${user.avatar||""}"
+    loading="lazy"
+    >
 
 
-        <div>
+    <div>
 
 
-            <strong>
-            ${escapeHTML(member.name)}
-            </strong>
+    <strong>
+    ${escapeHTML(user.name)}
+    </strong>
 
 
-            <span>
-            ${escapeHTML(member.role)}
-            </span>
+    <span>
+    ${escapeHTML(user.role)}
+    </span>
 
 
-            <p>
-            ${escapeHTML(
-                member.description || ""
-            )}
-            </p>
-
-
-        </div>
+    <p>
+    ${escapeHTML(
+        user.description||""
+    )}
+    </p>
 
 
     </div>
 
 
-    `).join("");
+    </div>
+
+
+    `)
+    .join("");
 
 }
+
+
 
 
 
@@ -1142,57 +1034,9 @@ function renderStaff(staff=[]){
 /* =============================== Search =============================== */
 
 
-function buildSearchIndex(){
-
-    const data=[];
-
-
-    store.faq.forEach(item=>{
-        data.push({
-            title:item.question,
-            target:"#faq"
-        });
-    });
-
-
-
-    store.bots.forEach(item=>{
-        data.push({
-            title:item.name,
-            target:"#fitur"
-        });
-    });
-
-
-
-    store.events.forEach(item=>{
-        data.push({
-            title:item.name,
-            target:"#event"
-        });
-    });
-
-
-
-    store.staff.forEach(item=>{
-        data.push({
-            title:item.name,
-            target:"#staff"
-        });
-    });
-
-
-
-    return data;
-
-}
-
-
-
-
 function initSearch(){
 
-    const button =
+    const open =
         $("#searchOpenBtn");
 
 
@@ -1218,17 +1062,7 @@ function initSearch(){
 
 
 
-    function hide(){
-
-        overlay.classList.remove(
-            "open"
-        );
-
-    }
-
-
-
-    button?.addEventListener(
+    open?.addEventListener(
         "click",
         ()=>{
 
@@ -1245,121 +1079,56 @@ function initSearch(){
 
     close?.addEventListener(
         "click",
-        hide
-    );
-
-
-
-    input.addEventListener(
-        "input",
         ()=>{
 
-
-            const q =
-            input.value
-            .toLowerCase()
-            .trim();
-
-
-
-            if(!q){
-
-                result.innerHTML="";
-                return;
-
-            }
-
-
-
-            result.innerHTML =
-            buildSearchIndex()
-            .filter(item=>
-                item.title
-                .toLowerCase()
-                .includes(q)
-            )
-            .map(item=>`
-
-            <div class="global-search-result">
-
-                ${escapeHTML(item.title)}
-
-            </div>
-
-            `)
-            .join("");
-
+            overlay.classList.remove(
+                "open"
+            );
 
         }
     );
 
 
-}
+
+    input.oninput=()=>{
+
+
+        const q =
+        input.value
+        .toLowerCase();
 
 
 
+        const all = [
 
+            ...store.faq.map(x=>x.question),
 
-/* =============================== Loaders =============================== */
+            ...store.bots.map(x=>x.name),
 
+            ...store.events.map(x=>x.name),
 
-async function loadOnboarding(){
+            ...store.staff.map(x=>x.name)
 
-    const result =
-        await fetchJSON(
-            "data/onboarding.json"
-        );
-
-
-    if(!result.ok)
-        return;
-
-
-    store.onboarding =
-        result.data.steps || [];
-
-
-    renderChecklist(
-        store.onboarding
-    );
-
-
-    renderSteps(
-        store.onboarding
-    );
-
-}
+        ];
 
 
 
+        result.innerHTML =
+        all
+        .filter(x=>
+            x.toLowerCase()
+            .includes(q)
+        )
+        .map(x=>`
 
+        <div class="global-search-result">
+        ${escapeHTML(x)}
+        </div>
 
-async function loadBots(){
+        `)
+        .join("");
 
-    const result =
-        await fetchJSON(
-            "data/bots.json"
-        );
-
-
-    if(!result.ok)
-        return;
-
-
-    store.bots =
-        result.data.bots || [];
-
-
-    renderBotCards(
-        store.bots,
-        "#homeFeatureGrid"
-    );
-
-
-    renderBotCards(
-        store.bots,
-        "#botGrid"
-    );
+    };
 
 }
 
@@ -1367,150 +1136,141 @@ async function loadBots(){
 
 
 
-async function loadChannels(){
 
-    const result =
-        await fetchJSON(
-            "data/channels.json"
-        );
+/* =============================== Load Data =============================== */
 
 
-    if(!result.ok)
-        return;
+async function loadAll(){
 
+    const [
 
-    store.channels =
-        result.data;
+        onboarding,
 
+        bots,
 
-    renderRules(
-        result.data.rules || []
-    );
+        channels,
 
+        faq,
 
-    renderChannels(
-        result.data.categories || []
-    );
+        events,
 
-}
+        staff
 
+    ] =
+    await Promise.all([
 
+        fetchJSON(
+        "data/onboarding.json"
+        ),
 
+        fetchJSON(
+        "data/bots.json"
+        ),
 
+        fetchJSON(
+        "data/channels.json"
+        ),
 
-async function loadFAQ(){
+        fetchJSON(
+        "data/faq.json"
+        ),
 
-    const result =
-        await fetchJSON(
-            "data/faq.json"
-        );
+        fetchJSON(
+        "data/events.json"
+        ),
 
+        fetchJSON(
+        "data/staff.json"
+        )
 
-    if(!result.ok)
-        return;
-
-
-    store.faq =
-        result.data.faq || [];
-
-
-    renderFAQ(
-        store.faq
-    );
-
-}
+    ]);
 
 
 
+    if(onboarding.ok){
 
+        store.onboarding =
+        onboarding.data.steps||[];
 
-async function loadEvents(){
-
-    const result =
-        await fetchJSON(
-            "data/events.json"
-        );
-
-
-    if(!result.ok)
-        return;
-
-
-    store.events =
-        result.data.events || [];
-
-
-    renderEvents(
-        store.events
-    );
-
-}
-
-
-
-
-
-async function loadStaff(){
-
-    const result =
-        await fetchJSON(
-            "data/staff.json"
-        );
-
-
-    if(!result.ok)
-        return;
-
-
-    store.staff =
-        result.data.staff || [];
-
-
-    renderStaff(
-        store.staff
-    );
-
-}
-
-
-
-
-
-/* =============================== Modal =============================== */
-
-
-$("#botModalClose")
-?.addEventListener(
-    "click",
-    closeBotModal
-);
-
-
-
-$("#botModal")
-?.addEventListener(
-    "click",
-    e=>{
-
-        if(
-            e.target === $("#botModal")
-        ){
-
-            closeBotModal();
-
-        }
+        renderChecklist();
+        renderSteps();
 
     }
-);
+
+
+
+    if(bots.ok){
+
+        store.bots =
+        bots.data.bots||[];
+
+        renderBots(
+        "#homeFeatureGrid"
+        );
+
+        renderBots(
+        "#botGrid"
+        );
+
+    }
+
+
+
+    if(channels.ok){
+
+        store.channels =
+        channels.data;
+
+        renderChannels();
+
+    }
+
+
+
+    if(faq.ok){
+
+        store.faq =
+        faq.data.faq||[];
+
+        renderFAQ();
+
+    }
+
+
+
+    if(events.ok){
+
+        store.events =
+        events.data.events||[];
+
+        renderEvents();
+
+    }
+
+
+
+    if(staff.ok){
+
+        store.staff =
+        staff.data.staff||[];
+
+        renderStaff();
+
+    }
+
+
+}
 
 
 
 
 
-/* =============================== INIT =============================== */
 
 
-async function init(){
+/* =============================== Start =============================== */
+
+
+function init(){
 
     console.log(
         "ARC Guide V3 Loaded"
@@ -1524,27 +1284,38 @@ async function init(){
 
 
 
-    await Promise.allSettled([
-
-        loadOnboarding(),
-
-        loadBots(),
-
-        loadChannels(),
-
-        loadFAQ(),
-
-        loadEvents(),
-
-        loadStaff()
-
-    ]);
-
-
-
-    console.log(
-        "ARC Guide siap."
+    $("#botModalClose")
+    ?.addEventListener(
+        "click",
+        closeBotModal
     );
+
+
+
+    $("#botModal")
+    ?.addEventListener(
+        "click",
+        e=>{
+
+            if(
+                e.target.id==="botModal"
+            )
+            closeBotModal();
+
+        }
+    );
+
+
+
+    loadAll()
+    .then(()=>{
+
+        console.log(
+            "ARC Guide siap."
+        );
+
+    });
+
 
 }
 
@@ -1552,7 +1323,7 @@ async function init(){
 
 
 if(
-document.readyState === "loading"
+document.readyState==="loading"
 ){
 
     document.addEventListener(
@@ -1566,7 +1337,6 @@ document.readyState === "loading"
     init();
 
 }
-
 
 
 })();
