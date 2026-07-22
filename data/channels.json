@@ -3,48 +3,80 @@
     {
       "name": "Mulai di Sini",
       "channels": [
-        { "name": "#rules", "description": "Wajib dibaca sebelum ngobrol di server." },
-        { "name": "#verifikasi", "description": "Verifikasi diri untuk membuka akses seluruh server." },
-        { "name": "#pengumuman", "description": "Info penting dan update resmi dari staff." },
-        { "name": "#perkenalan", "description": "Kenalkan dirimu ke member lain di sini." }
+        {
+          "name": "#📖︱rules",
+          "description": "Wajib dibaca sebelum mulai berinteraksi di server ARC."
+        },
+        {
+          "name": "#📣︱announcements",
+          "description": "Informasi penting, update server, dan pengumuman resmi dari staff."
+        },
+        {
+          "name": "#🕹️︱game-roles",
+          "description": "Pilih role game sesuai minat agar mendapatkan informasi yang relevan."
+        }
       ]
     },
     {
-      "name": "Ngobrol",
+      "name": "Komunitas",
       "channels": [
-        { "name": "#general", "description": "Obrolan bebas seputar apa saja." },
-        { "name": "#roblox-talk", "description": "Diskusi seputar game Roblox favorit kamu." },
-        { "name": "#meme", "description": "Tempat berbagi meme dan hiburan ringan." }
+        {
+          "name": "#💬︱publik-chat",
+          "description": "Tempat ngobrol bebas bersama member ARC."
+        },
+        {
+          "name": "#💨︱media",
+          "description": "Bagikan foto, video, atau konten menarik bersama komunitas."
+        }
       ]
     },
     {
-      "name": "Event & Aktivitas",
+      "name": "Roblox & Event",
       "channels": [
-        { "name": "#event-roblox", "description": "Info dan pendaftaran event Roblox rutin ARC." },
-        { "name": "#leaderboard", "description": "Papan peringkat member paling aktif." }
+        {
+          "name": "#event-roblox",
+          "description": "Informasi event Roblox, pendaftaran, dan kegiatan komunitas ARC."
+        },
+        {
+          "name": "#leaderboard",
+          "description": "Melihat daftar member dengan aktivitas atau pencapaian tertentu."
+        }
       ]
     },
     {
       "name": "Voice",
       "channels": [
-        { "name": "🔊 Lobby VC", "description": "Voice channel umum untuk nongkrong santai." },
-        { "name": "➕ Create VC", "description": "Klik untuk membuat voice channel pribadi otomatis." },
-        { "name": "🎵 Music VC", "description": "Voice channel khusus untuk mendengarkan musik bareng." }
+        {
+          "name": "🔊︱Lobby VC",
+          "description": "Voice channel umum untuk ngobrol dan nongkrong bersama."
+        },
+        {
+          "name": "➕︱Buat Channel",
+          "description": "Buat Temporary Voice Channel (Temp VC) pribadi secara otomatis."
+        },
+        {
+          "name": "🎵︱Music VC",
+          "description": "Voice channel untuk mendengarkan musik bersama."
+        }
       ]
     },
     {
       "name": "Bantuan",
       "channels": [
-        { "name": "#ticket", "description": "Buat tiket privat untuk bantuan dari staff." },
-        { "name": "#faq", "description": "Pertanyaan yang sering ditanyakan member baru." }
+        {
+          "name": "#🎫︱ticket-center",
+          "description": "Buat tiket privat untuk meminta bantuan dari staff ARC."
+        }
       ]
     }
   ],
   "rules": [
-    "Hormati semua member, tidak ada toleransi untuk toxic atau bullying.",
-    "Dilarang spam, iklan tanpa izin, atau konten NSFW.",
-    "Gunakan channel sesuai dengan topiknya masing-masing.",
-    "Ikuti Discord Community Guidelines dan Terms of Service.",
-    "Dengarkan arahan staff, keputusan staff bersifat final."
+    "🚫 Dilarang menghina atau menyerang member lain. Termasuk hinaan yang mengandung unsur SARA atau bertujuan menjatuhkan orang lain.",
+    "💬 Jangan melakukan spam, flood chat, mention berlebihan, atau hal lain yang mengganggu kenyamanan server.",
+    "⚠️ Toxic, roasting, atau trash talk diperbolehkan selama masih dalam batas wajar dan tidak membuat member lain merasa tidak nyaman.",
+    "🔞 Dilarang mengirim atau membagikan konten NSFW dalam bentuk apa pun.",
+    "🤝 Hormati semua member ARC dan bantu menjaga suasana komunitas tetap nyaman.",
+    "📢 Dilarang melakukan promosi server Discord, game Roblox, media sosial, channel, produk, atau jasa tanpa izin staff.",
+    "🛡️ Staff ARC berhak mengambil tindakan terhadap pelanggaran sesuai tingkat kesalahan, mulai dari peringatan hingga ban."
   ]
 }
