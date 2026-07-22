@@ -1,12 +1,10 @@
 {
-  "steps": [
-    {
-      "id": "verifikasi",
-      "title": "Verifikasi",
-      "short": "Verifikasi diri untuk membuka akses server",
-      "description": "Buka channel #verifikasi dan ikuti instruksi verifikasi. Setelah selesai, kamu akan mendapatkan akses ke seluruh channel server.",
-      "channel": "#verifikasi"
-    },
+  "id": "welcome",
+  "title": "Selamat Datang",
+  "short": "Kenali ARC dan mulai perjalananmu",
+  "description": "Kunjungi channel #welcome untuk mengenal ARC, informasi server, dan cara bergabung dengan komunitas.",
+  "channel": "#welcome"
+},
     {
       "id": "rules",
       "title": "Baca Rules",
