@@ -13,16 +13,16 @@
       "name": "Dyon",
       "role": "Admin",
       "roleGroup": "admin",
-      "avatar": "assets/staff/admin.jpg",
+      "avatar": "assets/staff/admin1.jpg",
       "description": "Mengelola operasional ARC dan membantu menjaga komunitas tetap aktif."
     },
     {
-  "id": "admin-2",
-  "name": "Nuxy",
-  "role": "Admin",
-  "roleGroup": "admin",
-  "avatar": "assets/staff/admin.jpg",
-  "description": "Admin ARC yang aktif berinteraksi dengan member, sering ikut meramaikan chat dan voice channel."
-}
+      "id": "admin-2",
+      "name": "Nuxy",
+      "role": "Admin",
+      "roleGroup": "admin",
+      "avatar": "assets/staff/admin2.jpg",
+      "description": "Admin ARC yang aktif berinteraksi dengan member, sering ikut meramaikan chat dan voice channel."
+    }
   ]
 }
