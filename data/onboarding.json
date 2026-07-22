@@ -1,39 +1,32 @@
 {
   "steps": [
     {
-      "id": "welcome",
-      "title": "Selamat Datang di ARC",
-      "short": "Kenali ARC dan mulai perjalananmu",
-      "description": "Kunjungi channel #welcome untuk mengenal Anak Roblox Community (ARC), informasi server, dan cara bergabung dengan komunitas.",
-      "channel": "#welcome"
-    },
-    {
       "id": "rules",
       "title": "Baca Rules",
       "short": "Pahami aturan komunitas ARC",
-      "description": "Kunjungi #rules dan baca seluruh peraturan server. Hormati member lain agar ARC tetap menjadi tempat yang nyaman untuk semua.",
-      "channel": "#rules"
+      "description": "Kunjungi #rules dan baca seluruh peraturan server. Hormati member lain agar ARC tetap menjadi komunitas yang nyaman.",
+      "channel": "#📖︱rules"
     },
     {
       "id": "role",
       "title": "Ambil Role",
-      "short": "Pilih role sesuai game favoritmu",
-      "description": "Ambil role di #role-selection sesuai game atau minat kamu agar mendapatkan informasi dan event yang relevan.",
-      "channel": "#role-selection"
+      "short": "Pilih game role sesuai minat kamu",
+      "description": "Ambil role di #🕹️︱game-roles sesuai game favorit atau minatmu agar mendapatkan informasi dan event yang sesuai.",
+      "channel": "#🕹️︱game-roles"
     },
     {
-      "id": "perkenalan",
-      "title": "Perkenalan",
-      "short": "Kenalkan dirimu ke komunitas",
-      "description": "Tulis perkenalan di #perkenalan seperti nama panggilan, game favorit, dan hal menarik tentang dirimu agar bisa mengenal member lain.",
-      "channel": "#perkenalan"
+      "id": "chat",
+      "title": "Mulai Ngobrol",
+      "short": "Bergabung dengan komunitas ARC",
+      "description": "Mulai ngobrol di channel publik, cari teman main, berbagi hal menarik, dan ikut aktivitas bersama member ARC.",
+      "channel": "#💬︱publik-chat"
     },
     {
-      "id": "mulai",
-      "title": "Mulai Bermain & Bergabung",
-      "short": "Jadilah bagian dari komunitas ARC",
-      "description": "Mulai ngobrol di #general, bergabung di voice channel, bermain bersama, dan ikuti event Roblox ARC terbaru.",
-      "channel": "#general"
+      "id": "event",
+      "title": "Ikut Event ARC",
+      "short": "Bermain dan bersaing bersama",
+      "description": "Pantau event Roblox ARC, ikut turnamen, dan bergabung dalam kegiatan komunitas.",
+      "channel": "#event-roblox"
     }
   ]
 }
