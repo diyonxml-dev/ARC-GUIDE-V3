@@ -1,36 +1,38 @@
 {
-  "id": "welcome",
-  "title": "Selamat Datang",
-  "short": "Kenali ARC dan mulai perjalananmu",
-  "description": "Kunjungi channel #welcome untuk mengenal ARC, informasi server, dan cara bergabung dengan komunitas.",
-  "channel": "#welcome"
-},
+  "steps": [
+    {
+      "id": "welcome",
+      "title": "Selamat Datang di ARC",
+      "short": "Kenali ARC dan mulai perjalananmu",
+      "description": "Kunjungi channel #welcome untuk mengenal Anak Roblox Community (ARC), informasi server, dan cara bergabung dengan komunitas.",
+      "channel": "#welcome"
+    },
     {
       "id": "rules",
       "title": "Baca Rules",
-      "short": "Pahami aturan main di server ARC",
-      "description": "Kunjungi #rules dan baca seluruh peraturan server. Ini penting supaya kamu nyaman dan tidak melanggar tanpa sadar.",
+      "short": "Pahami aturan komunitas ARC",
+      "description": "Kunjungi #rules dan baca seluruh peraturan server. Hormati member lain agar ARC tetap menjadi tempat yang nyaman untuk semua.",
       "channel": "#rules"
     },
     {
       "id": "role",
       "title": "Ambil Role",
-      "short": "Pilih role sesuai minat kamu",
-      "description": "Ambil role di channel role-selection sesuai game favorit atau minatmu, supaya notifikasi yang kamu terima lebih relevan.",
+      "short": "Pilih role sesuai game favoritmu",
+      "description": "Ambil role di #role-selection sesuai game atau minat kamu agar mendapatkan informasi dan event yang relevan.",
       "channel": "#role-selection"
     },
     {
       "id": "perkenalan",
       "title": "Perkenalan",
       "short": "Kenalkan dirimu ke komunitas",
-      "description": "Tulis perkenalan singkat di #perkenalan: nama panggilan, game Roblox favorit, dan hal seru tentang dirimu.",
+      "description": "Tulis perkenalan di #perkenalan seperti nama panggilan, game favorit, dan hal menarik tentang dirimu agar bisa mengenal member lain.",
       "channel": "#perkenalan"
     },
     {
       "id": "mulai",
-      "title": "Mulai Ngobrol / Ikut Event",
-      "short": "Kamu siap jadi bagian dari ARC",
-      "description": "Gabung ngobrol di #general, main bareng di voice channel, atau daftar event Roblox terdekat di #event-roblox.",
+      "title": "Mulai Bermain & Bergabung",
+      "short": "Jadilah bagian dari komunitas ARC",
+      "description": "Mulai ngobrol di #general, bergabung di voice channel, bermain bersama, dan ikuti event Roblox ARC terbaru.",
       "channel": "#general"
     }
   ]
