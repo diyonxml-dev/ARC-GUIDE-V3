@@ -14,7 +14,7 @@
         },
         {
           "step": "Putar musik",
-          "detail": "Gunakan command m!play <nama lagu> di channel musik."
+          "detail": "Gunakan command m!p <nama lagu> di channel musik."
         },
         {
           "step": "Kontrol musik",
