@@ -2,43 +2,43 @@
   "faq": [
     {
       "id": "faq-1",
-      "question": "Apa itu ARC (Anak Roblox Community)?",
-      "answer": "ARC adalah komunitas Discord untuk pemain Roblox di Indonesia. Tempat berkumpul, ngobrol, main bareng, dan ikut event seputar Roblox."
+      "question": "Apa itu ARC?",
+      "answer": "ARC (Anak Roblox Community) adalah komunitas Discord untuk pemain Roblox Indonesia. Tempat berkumpul, ngobrol, mencari teman main, dan mengikuti event Roblox bersama."
     },
     {
       "id": "faq-2",
-      "question": "Bagaimana cara mulai setelah join server?",
-      "answer": "Ikuti langkah di halaman \"Mulai di ARC\": verifikasi diri, baca rules, ambil role, perkenalkan diri, lalu mulai ngobrol atau ikut event."
+      "question": "Apa yang harus dilakukan setelah masuk ARC?",
+      "answer": "Baca rules server, ambil role sesuai minat atau game favorit, lalu mulai ngobrol bersama member di channel publik."
     },
     {
       "id": "faq-3",
-      "question": "Kapan event Roblox diadakan?",
-      "answer": "Event diadakan rutin setiap 2 minggu sekali. Jadwal lengkap bisa dilihat di halaman Event Roblox."
+      "question": "Kapan event ARC diadakan?",
+      "answer": "ARC mengadakan event Roblox secara rutin setiap 2 minggu sekali. Informasi event terbaru akan diumumkan oleh admin melalui channel 📣︱annnouncements."
     },
     {
       "id": "faq-4",
-      "question": "Bagaimana cara membuat voice channel pribadi?",
-      "answer": "Klik channel \"➕ Create VC\" dan room voice pribadi akan otomatis dibuat untukmu. Kamu bisa mengatur nama dan limit anggotanya."
+      "question": "Bagaimana cara mendapatkan role game?",
+      "answer": "Pergi ke channel #🕹️︱game-roles lalu pilih role sesuai game atau minat yang kamu inginkan."
     },
     {
       "id": "faq-5",
-      "question": "Bagaimana cara memutar musik di voice channel?",
-      "answer": "Join voice channel, buka channel perintah musik, lalu ketik !play diikuti judul lagu atau link."
+      "question": "Bagaimana cara membuat voice channel pribadi?",
+      "answer": "Masuk ke channel voice \"➕︱Buat Channel\" yang tersedia di server ARC. Sistem akan otomatis membuat Temporary Voice Channel (Temp VC) khusus untukmu. Kamu dapat mengatur nama channel, batas member, dan beberapa pengaturan voice sesuai kebutuhan."
     },
     {
       "id": "faq-6",
-      "question": "Bagaimana sistem level dan XP bekerja?",
-      "answer": "XP didapat otomatis dari aktivitas chat dan voice. Semakin aktif, semakin cepat naik level dan membuka reward tertentu."
+      "question": "Apakah ARC memiliki sistem level?",
+      "answer": "Ya, ARC memiliki sistem level yang memberikan XP berdasarkan aktivitas member. Semakin aktif berinteraksi di server, semakin tinggi level yang bisa dicapai."
     },
     {
       "id": "faq-7",
-      "question": "Saya punya masalah atau ingin melapor, harus ke mana?",
-      "answer": "Buka channel #ticket, klik tombol buat tiket, pilih kategori yang sesuai, lalu jelaskan masalahmu. Staff akan segera membantu."
+      "question": "Bagaimana jika saya membutuhkan bantuan staff?",
+      "answer": "Jika membutuhkan bantuan atau ingin melaporkan masalah, hubungi staff ARC atau gunakan fitur ticket yang tersedia di server."
     },
     {
       "id": "faq-8",
-      "question": "Apakah ARC ramah untuk pemain baru?",
-      "answer": "Tentu. ARC dirancang agar member baru mudah beradaptasi lewat panduan onboarding step-by-step di website ini."
+      "question": "Apakah member baru boleh bergabung?",
+      "answer": "Tentu. ARC terbuka untuk semua pemain Roblox yang ingin mencari teman, bermain bersama, dan menjadi bagian dari komunitas."
     }
   ]
 }
